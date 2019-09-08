@@ -1,0 +1,9 @@
+com.epam.myGame
+com.epam.myGame.controller
+com.epam.myGame.model
+com.epam.myGame.model.features
+com.epam.myGame.model.heroes
+com.epam.myGame.model.heroes.abstractHero
+com.epam.myGame.model.heroes.heroCreation
+com.epam.myGame.model.weapon
+com.epam.myGame.view
