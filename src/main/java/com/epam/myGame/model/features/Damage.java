@@ -1,7 +1,7 @@
 package com.epam.myGame.model.features;
 
 /**
- * The interface Damage.
+ * The interface Damage which show how much each weapon has damage.
  */
 public interface Damage {
     /**

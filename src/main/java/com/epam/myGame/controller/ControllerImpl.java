@@ -3,7 +3,7 @@ package com.epam.myGame.controller;
 import com.epam.myGame.model.Arena;
 import com.epam.myGame.model.Model;
 /**
- * The type Controller.
+ * class Controller.
  */
 public class ControllerImpl implements Controller {
     private Model model;

@@ -3,7 +3,7 @@ package com.epam.myGame.controller;
 import com.epam.myGame.model.heroes.abstractHero.Hero;
 
 /**
- * The interface Controller.
+ *Interface Controller.
  */
 public interface Controller {
 

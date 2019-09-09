@@ -3,7 +3,7 @@ package com.epam.myGame;
 import com.epam.myGame.view.View;
 
 /**
- * The type Main.
+ * The class Main.
  */
 public class Main {
     /**

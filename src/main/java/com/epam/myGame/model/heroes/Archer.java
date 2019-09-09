@@ -10,7 +10,6 @@ import com.epam.myGame.model.weapon.Bow;
  */
 public class Archer extends Hero {
     private String nameOfWeapon;
-
     /**
      * Instantiates a new Archer.
      */

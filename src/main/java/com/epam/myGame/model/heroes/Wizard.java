@@ -3,13 +3,11 @@ package com.epam.myGame.model.heroes;
 import com.epam.myGame.model.features.WeaponName;
 import com.epam.myGame.model.heroes.abstractHero.Hero;
 import com.epam.myGame.model.weapon.Staff;
-
 /**
  * The type Wizard.
  */
 public class Wizard extends Hero {
     private String nameOfWeapon;
-
     /**
      * Instantiates a new Wizard.
      */

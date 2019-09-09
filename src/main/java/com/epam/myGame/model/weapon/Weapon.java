@@ -35,7 +35,7 @@ public abstract class Weapon implements Damage {
      * @param type the type
      * @return the name of weapon
      */
-    public String getName(@org.jetbrains.annotations.NotNull WeaponName type) {
+    public String getName( WeaponName type) {
         switch (type) {
             case BOW:
                 return "Bow";

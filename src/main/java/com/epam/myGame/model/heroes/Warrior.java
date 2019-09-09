@@ -39,6 +39,7 @@ public class Warrior extends Hero {
     public void resistWeapon() {
 
     }
+
     @Override
     public String toString() {
         return "Warrior";

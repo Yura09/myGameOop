@@ -32,6 +32,7 @@ public class View {
         methodsMenu.put("1", this::pressButton1);
         methodsMenu.put("2", this::pressButton2);
         methodsMenu.put("3", this::pressButton3);
+        methodsMenu.put("Q", this::pressButton4);
     }
 
     private void outputMenu() {
@@ -39,6 +40,11 @@ public class View {
         for (String str : menu.values()) {
             System.out.println("\t" + str);
         }
+    }
+
+    public void pressButton4() {
+        System.out.println("Bye-Bye");
+        System.exit(0);
     }
 
     private void showDamage() {

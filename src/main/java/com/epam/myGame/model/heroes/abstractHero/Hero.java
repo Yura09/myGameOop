@@ -8,21 +8,49 @@ import com.epam.myGame.model.weapon.Weapon;
 import java.util.Random;
 
 /**
- * The type Hero.
+ * The abstract class Hero.
+ * This class contains data about hero.
  */
 public abstract class Hero implements Race, Heal, Health, Mana {
     private final Random random = new Random();
+    /**
+     * Health of the hero.
+     */
     private int health;
+    /**
+     * Mana of the hero.
+     */
     private int mana;
+    /**
+     * Damage that hero do using weapon.
+     */
     private int damage;
+    /**
+     * Number of health potions that hero has.
+     */
     private int numHealthPotions;
+    /**
+     * Chance of fatal damage which hero can do using weapon.
+     */
     private double chanceOfFatalDamage;
+    /**
+     * Hero's weapon.
+     */
     private Weapon weapon;
 
     /**
-     * Heal hp int.
+     * Instantiates a new Hero with random health, mana and number of health potions
+     */
+    public Hero() {
+        this.health = random.nextInt(MAX_HEALTH - MIN_HEALTH) + MIN_HEALTH;
+        this.mana = random.nextInt(MAX_MANA - MIN_MANA) + MIN_MANA;
+        numHealthPotions = NUM_HEALTH_POTIONS;
+    }
+
+    /**
+     * This method heal the hero and lose one health potion.
      *
-     * @return the int
+     * @return current health of hero.
      */
     protected int healHp() {
         int healHp = random.nextInt(Heal.MAX_HEAL - Heal.MIN_HEAL) + MIN_HEAL;
@@ -32,45 +60,36 @@ public abstract class Hero implements Race, Heal, Health, Mana {
     }
 
     /**
-     * Gets num health potions.
+     * Get number of health potions.
      *
-     * @return the num health potions
+     * @return Number of health potions.
      */
     public int getNumHealthPotions() {
         return numHealthPotions;
     }
 
     /**
-     * Sets num health potions.
+     * Set number of health potions.
      *
-     * @param numHealthPotions the num health potions
+     * @param numHealthPotions - the number of health potions.
      */
     public void setNumHealthPotions(int numHealthPotions) {
         this.numHealthPotions = numHealthPotions;
     }
 
     /**
-     * Gets health.
+     * Get health.
      *
-     * @return the health
+     * @return the health of hero.
      */
     public int getHealth() {
         return health;
     }
 
     /**
-     * Instantiates a new Hero.
-     */
-    public Hero() {
-        this.health = random.nextInt(MAX_HEALTH - MIN_HEALTH) + MIN_HEALTH;
-        this.mana = random.nextInt(MAX_MANA - MIN_MANA) + MIN_MANA;
-        numHealthPotions = NUM_HEALTH_POTIONS;
-    }
-
-    /**
-     * Is dead boolean.
+     * Is current hero dead.
      *
-     * @return the boolean
+     * @return boolean type - is hero dead or no.
      */
     public boolean isDead() {
         if (this.health < 1) {
@@ -80,11 +99,10 @@ public abstract class Hero implements Race, Heal, Health, Mana {
             return false;
         }
     }
-
     /**
-     * Attack damage int.
+     * This method check is hero has enough mana and chance to do fatal damage and set damage which hero can do.
      *
-     * @return the int
+     * @return damage of the hero.
      */
     protected int attackDamage() {
         if (isFatalDamage() && isEnoughMana()) {
@@ -96,25 +114,35 @@ public abstract class Hero implements Race, Heal, Health, Mana {
         return damage;
     }
 
+    /**
+     * Set random if hero can do fatal damage.
+     *
+     * @return boolean type.
+     */
     private boolean isFatalDamage() {
         return Math.random() < chanceOfFatalDamage;
     }
 
+    /**
+     * Check is enough mana to deal fatal damage.
+     *
+     * @return boolean - is enough mana
+     */
     private boolean isEnoughMana() {
-        return damage <= mana;
+        return this.getWeapon().getFatalDamage() <= mana;
     }
 
     /**
-     * Sets health.
+     * Set health.
      *
-     * @param health the health
+     * @param health - the health og hero
      */
     public void setHealth(int health) {
         this.health = health;
     }
 
     /**
-     * Gets chance of fatal damage.
+     * Get chance of fatal damage.
      *
      * @return the chance of fatal damage
      */
@@ -123,25 +151,25 @@ public abstract class Hero implements Race, Heal, Health, Mana {
     }
 
     /**
-     * Sets chance of fatal damage.
+     * Set chance of fatal damage.
      *
-     * @param chanceOfFatalDamage the chance of fatal damage
+     * @param chanceOfFatalDamage - hero's chance of fatal damage
      */
     protected void setChanceOfFatalDamage(double chanceOfFatalDamage) {
         this.chanceOfFatalDamage = chanceOfFatalDamage;
     }
 
     /**
-     * Gets weapon.
+     * Get weapon.
      *
-     * @return the weapon
+     * @return the weapon of hero
      */
     protected Weapon getWeapon() {
         return weapon;
     }
 
     /**
-     * Sets weapon.
+     * Set weapon which hero use.
      *
      * @param weapon the weapon
      */
@@ -150,7 +178,7 @@ public abstract class Hero implements Race, Heal, Health, Mana {
     }
 
     /**
-     * Gets name of weapon.
+     * Get name of weapon.
      *
      * @return the name of weapon
      */
